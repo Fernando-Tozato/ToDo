@@ -1,0 +1,25 @@
+graph TD
+    A[Usuário / Front-end<br>HTML/JS/Bootstrap] -->|HTTP JSON - Bearer JWT?| B[Controller REST]
+    B --> C[Service / Lógica de negócio]
+    C --> D[Repository - JPA / JdbcTemplate]
+    D --> E[PostgreSQL Database]
+    E --> D
+    D --> C
+    C --> B
+    B -->|JSON response| A
+
+    subgraph Cross-Cutting
+        F[Validação - Valid]
+        G[Auth Filter - JWT]
+        H[Global Exception Handler]
+        I[DTO Mapper]
+        J[Logging / Metrics]
+        K[Flyway / Migrações]
+    end
+
+    B --- F
+    B --- G
+    B --- H
+    B --- I
+    C --- J
+    E --- K

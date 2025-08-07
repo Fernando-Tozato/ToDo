@@ -1,0 +1,22 @@
+DO $$
+    BEGIN
+        IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'task_status') THEN
+            CREATE TYPE task_status AS ENUM ('TODO', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED');
+        END IF;
+
+        IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'task_priority') THEN
+            CREATE TYPE task_priority AS ENUM ('HIGHEST', 'HIGH', 'MEDIUM', 'LOW', 'LOWEST');
+        END IF;
+    END
+$$;
+
+CREATE TABLE TASK (
+    ID SERIAL primary key,
+    NAME VARCHAR(100) NOT NULL,
+    DESCRIPTION TEXT,
+    STATUS task_status NOT NULL DEFAULT 'TODO',
+    PRIORITY task_priority NOT NULL DEFAULT 'MEDIUM',
+    DUE_DATE TIMESTAMP,
+    CREATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UPDATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DiffGenerationConfig">
+    <option name="snapshotDb" value="false" />
+    <option name="snapshotDbValue" value="f8a8ad8b-ef40-498a-af5b-6812c29f5a19" />
+    <option name="snapshotModelValue" value="inac.fernando.aulas.projetos.todo_list.main:inac.fernando.aulas.projetos.todo_list.main" />
+    <option name="sourceModelValue" value="inac.fernando.aulas.projetos.todo_list.main:inac.fernando.aulas.projetos.todo_list.main" />
+    <option name="targetDbValue" value="f8a8ad8b-ef40-498a-af5b-6812c29f5a19" />
+  </component>
+</project>
